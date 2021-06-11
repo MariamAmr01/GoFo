@@ -25,4 +25,14 @@ public class User {
       System.out.println("Tranfer money done successfully.");
     }
   }
+  
+  
+  public double checkBalance(int i){
+    return Account.accounts.get(i).getBalance(i);
+  }
+
+  public void addBalance(double amountOfMoney, int i){
+    double currentBalance = this.account.getBalance(i) + amountOfMoney;
+    this.account.updateBalance(currentBalance, i);
+  }
 }

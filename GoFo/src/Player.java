@@ -1,4 +1,5 @@
 import java.util.*;
+import java.util.*;
 public class Player extends User {
 	
 		  private Account account;
@@ -6,14 +7,14 @@ public class Player extends User {
 		  private PlaygroundOwner owner;
 		  private int choice;
 		  static public int id2 = -1;  
-		 
+		  private int id3=0;
 		  public Player (){
 			    account = new Account();
-			    id2++;
-			    /*if (id2 == Account.idPlayer){
+			    Player.id2++;
+			    id3=Player.id2;
+			    if (id2 == Account.idPlayer){
 			      account = account.getAccountByID(id2);
-			      System.out.println(account.toString());
-			    }*/
+			    }
 			  }
 		  
 		  public void bookPlayground() {
@@ -21,6 +22,7 @@ public class Player extends User {
 			  {  playground= new Playground();
 				  setSuitableSlots( );
 				  Playground.availableHours.remove(getSlots());
+				  System.out.println(playground.getId());
 				 this.playground.bookPlayground(playground.getId(), this);
 				//this.transferMoney(playground.getCost(playground.getId()), playground.getOwner(playground.getId()).getAccount() , Account.idPlayer,Account.idPlaygroundOwner);
 			  }
@@ -37,7 +39,10 @@ public class Player extends User {
 		  { 
 			  return (choice-1);
 		  } 
-		  public void viewBooking() {}
+		  /*public void viewBooking() 
+		  {
+			  playground.playBooks(this.id3);
+		  }*/
 		  public void cancelBooking() {}
 		  public Account getAccount(){
 			    if (id2 == Account.idPlayer){
@@ -58,6 +63,7 @@ public class Player extends User {
 	      Player player=new Player();
 	      player.setSuitableSlots();
 		  }
-
+          public int getID() {
+		 return id3;
+		 }
 	}
-

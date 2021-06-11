@@ -6,11 +6,10 @@ Testing system's functions.
 <br/>
 ////////////////////////////
 <br/>
-User.java:<br/>
-Contains fuctionalities that would be inherited by PlaygroundOwner and Player. <br/>
-As "Transfer Money", "checking balance" to make sure that the user have enough money to transfer money to other users, and "addBalance": add money to the user's account.<br/>
-///////////////////////////<br/>
 Account.java:<br/>
+Contain functionalites related to account as:<br/>
+Transfer Money: Transfer money from an account to another<br/>
+checking balance: to make sure that the user have enough money to transfer money to other users<br/>
 Contain functionalites to create and use account as:<br/>
 Sign up: for user to register for the first time.<br/>
 Sign in: for users to use the account they created.<br/>

@@ -8,7 +8,8 @@ public class Player {
 	private int choice;
 	static public int id2 = -1;
 	private int id3 = 0;
-
+	private ArrayList<Playground> playerBooked = new ArrayList<Playground>();
+	  
 	public Player() {
 		account = new Account();
 		Player.id2++;
@@ -24,14 +25,11 @@ public class Player {
 
 			setSuitableSlots();
 			Playground.availableHours.remove(getSlots());
-
 			this.playground.bookPlayground(i, this);
 
-			System.out.println("Account id: " + Account.accountId);
-			System.out.println("PlaygroundOwner id: " + Account.idPlaygroundOwner);
-
 			account.transferMoney(playground.getCost(Playground.bookedPlaygrounds.size() - 1),
-					playground.getOwner(i).getAccount());
+			playground.getOwner(i).getAccount());
+			playerBooked.add(Playground.bookedPlaygrounds.get(Playground.bookedPlaygrounds.size() - 1));
 
 		}
 	}
@@ -49,10 +47,20 @@ public class Player {
 	}
 
 	public void viewBooking() {
-		playground.playBooks(getID());
+		System.out.println("Your booked playgrounds: ");
+		for (int i = 0; i < playerBooked.size(); i++) {
+		      System.out.println((i + 1) + "- " + playerBooked.get(i));
+		    }
 	}
 
 	public void cancelBooking() {
+		System.out.println("Choose playground to cancel: ");
+		viewBooking();
+		Scanner in = new Scanner(System.in);
+		int choice=in.nextInt();
+		playerBooked.remove(choice-1);
+		viewBooking();
+		playground.cancelBooking2(choice-1);
 	}
 
 	public Account getAccount() {

@@ -52,4 +52,27 @@ public class Account {
     }
 
   }
+   // Returns the signed in account.
+  public Account signIn(String mail, String password, String userType) {
+    Account accountSignIn = new Account();
+    for (int i = 0; i < accounts.size(); i++) {
+
+      if (mail == email && password == pass && userType == type) {
+        accountSignIn = accounts.get(i);
+        System.out.println("Welcome " + accountSignIn.userName + " , in your account.");
+        return accountSignIn;
+      }
+    }
+    System.out.println("Failed to Sign in.");
+    System.out.println("Account not found. Please check your data and try again. ");
+    return accountSignIn;
+  }
+
+  public double updateBalance(double balance, int i) {
+    accounts.get(i).balance = balance;
+    //return this.balance;
+    return accounts.get(i).balance;
+  }
+  
+  
 }

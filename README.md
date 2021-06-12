@@ -1,16 +1,14 @@
 # HW4_GoFo
-A system for booking playgrounds. <br/>
-------------------------- <br/>
+A system for booking playgrounds. 
+<br/>---------------------------------- <br/>
 Tools used to develop the program: <br/>
 1-Eclipse <br/>
 2-Visual Studio Code <br/>
-------------------------- <br/>
+---------------------------------- <br/>
 Files included:
 Main.java: 
 Testing system's functions.
-<br/>
--------------------------
-<br/>
+<br/>----------------------------------<br/>
 Account.java:<br/>
 Contain functionalites related to account as:<br/>
 Transfer Money: Transfer money from an account to another<br/>
@@ -25,7 +23,7 @@ getID: return id of the user depending on the type of the account.<br/>
 toString: Print account information.<br/>
 getAccountByID: Return the account with the entered ID.<br/>
 getUserType: Return Account type (Player/PlaygroundOwne)<br/>
--------------------------<br/>
+----------------------------------<br/>
 PlaygroundOwner.java:<br/>
 Handles Owner's actions:<br/>
 createPlayground: Owner inputs information related to the playground.<br/>
@@ -34,8 +32,9 @@ displayOwnerMenu: menu for owner.<br/>
 getID: return id of owner.<br/>
 getAccount: return Account of owner.<br/>
 toString: Print owner's information.<br/>
-viewBooks: Shows the owner's book playgrounds.<br/>
--------------------------<br/>
+viewBooks: Shows the owner's book playgrounds.
+<br/>
+----------------------------------<br/>
 Playground.java:<br/>
 Handles actions taken upon playground:<br/>
 setUpPlayground: Set the information of the playground recieved from owner.<br/>
@@ -47,7 +46,7 @@ getOwner: return owner of playground.<br/>
 getCost: return cost of playgroud.<br/>
 Ownerbooks: Prints books of the owner's playground.<br/>
 CancelBooking: Remove playground from the booked list and set it back to be available for booking. <br/>
--------------------------<br/>
+----------------------------------<br/>
 Player.java:<br/>
 Handles Player's actions:<br/>
 bookPlayground: player book certain playground if there are slots available. <br/>

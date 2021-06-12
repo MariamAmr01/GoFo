@@ -41,7 +41,7 @@ getId: return id of playground.<br/>
 getOwner: return owner of playground.<br/>
 getCost: return cost of playgroud.<br/>
 Ownerbooks: Prints books of the owner's playground.<br/>
-CancelBooking: Remove playground from the booked list and set it back to be available for booking.
+CancelBooking: Remove playground from the booked list and set it back to be available for booking. <br/>
 //////////////////////////<br/>
 Player.java:<br/>
 Handles Player's actions:<br/>

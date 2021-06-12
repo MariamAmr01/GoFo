@@ -52,8 +52,8 @@ public class Account {
     /**
      *  Method used to sign up to the  system 
      * @param  email of user
-     * @param  username of user 
-     * @param  password of user 
+     * @param  userName of user 
+     * @param  pass of user 
      * @param  type of account 
      */
     public Account signUp(String email, String userName, String pass, String type) {

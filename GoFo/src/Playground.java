@@ -4,97 +4,87 @@ public class Playground {
 
   private double cost;
   private String address;
-  private  int pId;
-  public static int id = -1; 
+  public static int pId;
+  public static int id = -1;
   private Player player;
   private PlaygroundOwner owner;
 
   public static ArrayList<Playground> availablePlaygrounds = new ArrayList<Playground>();
   public static ArrayList<Playground> bookedPlaygrounds = new ArrayList<Playground>();
 
-  public static ArrayList<String> availableHours = new ArrayList<String>();
+  public ArrayList<String> availableHours = new ArrayList<String>();
 
   public Playground() {
     cost = 0;
     address = "";
-    pId=-1;
+    pId = -1;
     player = new Player();
   }
 
   public void setUpPlayground(ArrayList<String> Slots, double cost, String address, PlaygroundOwner owner) {
-    availableHours = Slots;
+    for (int i = 0; i < Slots.size(); i++) {
+      availableHours.add(Slots.get(i));
+    }
 
     this.cost = cost;
     this.address = address;
     this.owner = owner;
-    this.pId=-1;
+    this.pId = -1;
     Playground.id++;
     availablePlaygrounds.add(this);
-	printArrayList();
+    System.out.println("Playground created successfully.");
+    System.out.println("========================================");
   }
 
   public String toString() {
-    return "Playground informaion: " + "\n" + "Address: " + address + "\n" + "cost: " + cost + "\n"
-        + this.owner.toString();
+    return "Playground informaion: " + "\n" + "Address: " + address + "\n" + "cost: " + cost + "\n" + owner;
   }
 
   public void printArrayList() {
-    System.out.println("Created Playgrounds List: ");
-    for (int i = 0; i < availablePlaygrounds.size(); i++) {
-      System.out.println((i + 1) + "- " + availablePlaygrounds.get(i).toString());
+    if (availablePlaygrounds.size() != 0) {
+      for (int i = 0; i < availablePlaygrounds.size(); i++) {
+        System.out.println((i + 1) + "- " + availablePlaygrounds.get(i).toString());
+      }
+    } else {
+      System.out.println("There in no available Playgrounds");
     }
   }
-  public void bookPlayground (int id , Player player )
-  {   
-	  setPid(player.getID());
-	  bookedPlaygrounds.add(availablePlaygrounds.get(id));
-	  availablePlaygrounds.remove(id);
-	  Playground.id--;
-	/* for (int i = 0; i < bookedPlaygrounds.size(); i++) {
-	      System.out.println((i + 1) + "- " + bookedPlaygrounds.get(i).toString());
-	    }*/
-  } 
-  public void playBooks(int id)
-  { int j=-1;
-	  for (int i = 0; i < bookedPlaygrounds.size(); i++) {
-		  System.out.println("input id"+ id);
-		  System.out.println("pID "+bookedPlaygrounds.get(i).pId);
-		  if(bookedPlaygrounds.get(i).pId==id)
-		  { 
-			  j=i;
-			  break;
-	    }
-	  }
-		  if(j!=-1) {
-			  System.out.println( bookedPlaygrounds.get(j).toString());
-			  }
-			  else   {System.out.println("Player not found");}
+
+  public void bookPlayground(int id, Player player) {
+    pId = player.getID();
+    bookedPlaygrounds.add(availablePlaygrounds.get(id));
+    if (availableHours.size() == 0) {
+      availablePlaygrounds.remove(id);
+      Playground.id--;
+    }
   }
-  public void ownerBooks(int id)
-  { 
-	  for (int i = 0; i < bookedPlaygrounds.size(); i++) {
-		  System.out.println((i + 1) + "- " + bookedPlaygrounds.get(i).toString());
-	    }
+
+  public void cancelBooking2(int i, String slot) {
+
+    availablePlaygrounds.add(bookedPlaygrounds.get(i));
+    bookedPlaygrounds.get(i).availableHours.add(slot);
+    bookedPlaygrounds.remove(i);
+    System.out.println("AVAILABLE: ");
+    printArrayList();
   }
-  public int getId()
-  {
-	  return Playground.id;
+
+  public int getId() {
+    return Playground.id;
   }
-  public PlaygroundOwner getOwner(int id)
-  {
-	  return bookedPlaygrounds.get(id).owner;
+
+  public PlaygroundOwner getOwner(int id) {
+    return bookedPlaygrounds.get(id).owner;
   }
-  public double getCost(int id)
-  {
-	  return	  bookedPlaygrounds.get(id).cost;
+
+  public double getCost(int id) {
+    return bookedPlaygrounds.get(id).cost;
   }
-  public void setPid(int id)
-  {
-	  pId=id;
+
+  public void ownerBooks(int index) {
+    for (int i = 0; i < bookedPlaygrounds.size(); i++) {
+      if (index == bookedPlaygrounds.get(i).getOwner(i).getID()) {
+        System.out.println("Booked Playgrounds \n" + (i + 1) + ")" + bookedPlaygrounds.get(i).toString());
+      }
+    }
   }
-  public int getPid()
-  {
-	  return	  pId;
-  }
-  
 }

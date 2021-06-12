@@ -1,26 +1,65 @@
+
+/**
+ * This Class represents a client account with balance and account number
+ *
+ * @author Norhan Abdelkader
+ * @author Mariam Amr
+ * @author Nermeen Mohamed
+ * @since 2021-06-10
+ *
+ */
 import java.util.ArrayList;
 
 public class Playground {
 
   private double cost;
   private String address;
-  public static int pId;
-  public static int id = -1;
-  private Player player;
-  private PlaygroundOwner owner;
+  /**
+     * Static integer used to assign player ID
+     */
+    public static int pId;
 
-  public static ArrayList<Playground> availablePlaygrounds = new ArrayList<Playground>();
-  public static ArrayList<Playground> bookedPlaygrounds = new ArrayList<Playground>();
+    /**
+     * /**
+     * Static integer used to assign playground id
+     */
+    public static int id = -1;
+    private Player player;
+    private PlaygroundOwner owner;
 
-  public ArrayList<String> availableHours = new ArrayList<String>();
+    /**
+     * Static array list used to storage available playgrounds
+     */
+    public static ArrayList<Playground> availablePlaygrounds = new ArrayList<Playground>();
 
-  public Playground() {
-    cost = 0;
-    address = "";
-    pId = -1;
-    player = new Player();
-  }
+    /**
+     * Static array list used to storage booked playgrounds
+     */
+    public static ArrayList<Playground> bookedPlaygrounds = new ArrayList<Playground>();
 
+    /**
+     * Static array list used to storage available hours of playground
+     */
+    public ArrayList<String> availableHours = new ArrayList<String>();
+
+    /**
+     * Default Constructor to initialize the values of the attributes of the
+     * playground
+     */
+    public Playground() {
+        cost = 0;
+        address = "";
+        pId = -1;
+        player = new Player();
+    }
+  
+ /**
+     *
+     * @param Slots of available playground that will be booked
+     * @param cost of the playground that will be booked
+     * @param address of the playground that will be booked
+     * @param owner of the playground that will be booked
+     */
   public void setUpPlayground(ArrayList<String> Slots, double cost, String address, PlaygroundOwner owner) {
     for (int i = 0; i < Slots.size(); i++) {
       availableHours.add(Slots.get(i));
@@ -36,9 +75,21 @@ public class Playground {
     System.out.println("========================================");
   }
 
+    /**
+     *
+     * Method used to convert playground owner information to string
+     *
+     * @return address and cost converted into string
+     */
   public String toString() {
     return "Playground informaion: " + "\n" + "Address: " + address + "\n" + "cost: " + cost + "\n" + owner;
   }
+  
+     /**
+     *
+     * Method used to print list of available playgrounds by id converted into
+     * string
+     */
 
   public void printArrayList() {
     if (availablePlaygrounds.size() != 0) {
@@ -50,6 +101,11 @@ public class Playground {
     }
   }
 
+    /**
+     *
+     * @param id of playground
+     * @param player who will book playground
+     */
   public void bookPlayground(int id, Player player) {
     pId = player.getID();
     bookedPlaygrounds.add(availablePlaygrounds.get(id));
@@ -58,7 +114,12 @@ public class Playground {
       Playground.id--;
     }
   }
-
+  
+   /**
+     *
+     * @param i index of booked playground
+     * @param slot of the playground to return it again to available
+     */
   public void cancelBooking2(int i, String slot) {
 
     availablePlaygrounds.add(bookedPlaygrounds.get(i));
@@ -68,18 +129,43 @@ public class Playground {
     printArrayList();
   }
 
+     /**
+     *
+     * Method used to return playground id
+     *
+     * @return id of playground
+     */
   public int getId() {
     return Playground.id;
   }
-
+  
+   /**
+     *
+     * Method used to return playground owner id
+     *
+     * @param id of the playground owner of this playground
+     * @return
+     */
   public PlaygroundOwner getOwner(int id) {
     return bookedPlaygrounds.get(id).owner;
   }
-
+  
+  /**
+     *
+     * Method used to return cost of playground
+     *
+     * @param id
+     * @return
+     */
   public double getCost(int id) {
     return bookedPlaygrounds.get(id).cost;
   }
-
+   /**
+     *
+     * Method used to make playground owner able to see his booked playground
+     *
+     * @param index of this playground
+     */
   public void ownerBooks(int index) {
     for (int i = 0; i < bookedPlaygrounds.size(); i++) {
       if (index == bookedPlaygrounds.get(i).getOwner(i).getID()) {

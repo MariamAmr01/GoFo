@@ -1,4 +1,5 @@
 
+import java.util.ArrayList;
 /**
  * This Class represents a playground which will be booked
  *
@@ -8,8 +9,6 @@
  * @since 2021-06-10
  *
  */
-import java.util.ArrayList;
-
 public class Playground {
 
   private double cost;

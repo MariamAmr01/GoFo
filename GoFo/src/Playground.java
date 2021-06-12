@@ -1,6 +1,6 @@
 
 /**
- * This Class represents a client account with balance and account number
+ * This Class represents a playground which will be booked
  *
  * @author Norhan Abdelkader
  * @author Mariam Amr

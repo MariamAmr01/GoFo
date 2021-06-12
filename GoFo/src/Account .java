@@ -57,37 +57,38 @@ public class Account {
      * @param pass
      * @param type
      */
-    public void signUp(String email, String userName, String pass, String type) {
-        boolean flag = true;
-        for (int i = 0; i < accounts.size(); i++) {
+    public Account signUp(String email, String userName, String pass, String type) {
+    boolean flag = true;
+    for (int i = 0; i < accounts.size(); i++) {
 
-            if (accounts.get(i).email.equalsIgnoreCase(email)) {
-                System.out.println("Failed to register.");
-                System.out.println("There is already an account with this email.");
-                flag = false;
-            } else if (accounts.get(i).userName.equalsIgnoreCase(userName)) {
-                System.out.println("Failed to register.");
-                System.out.println("There is already an account with this name.");
-                flag = false;
-            }
-        }
-        if (flag) {
-            if (type.equalsIgnoreCase("owner") || type.equalsIgnoreCase("playground owner")) {
-                idPlaygroundOwner++;
-                accountId++;
-            } else if (type.equalsIgnoreCase("player")) {
-                idPlayer++;
-                accountId++;
-            }
-            Account a = new Account();
-            a.email = email;
-            a.userName = userName;
-            a.pass = pass;
-            a.type = type;
-            accounts.add(a);
-        }
-
+      if (accounts.get(i).email.equalsIgnoreCase(email)) {
+        System.out.println("Failed to register.");
+        System.out.println("There is already an account with this email.");
+        flag = false;
+      } else if (accounts.get(i).userName.equalsIgnoreCase(userName)) {
+        System.out.println("Failed to register.");
+        System.out.println("There is already an account with this name.");
+        flag = false;
+      }
     }
+    if (flag) {
+      if (type.equalsIgnoreCase("owner") || type.equalsIgnoreCase("playground owner")) {
+        idPlaygroundOwner++;
+        accountId++;
+      } else if (type.equalsIgnoreCase("player")) {
+        idPlayer++;
+        accountId++;
+      }
+      Account a = new Account();
+      a.email = email;
+      a.userName = userName;
+      a.pass = pass;
+      a.type = type;
+      accounts.add(a);
+      return a;
+    }
+    return this;
+  }
 
     
     /**
@@ -177,8 +178,7 @@ public class Account {
      * @return
      */
     public String toString() {
-        return "Account informaion: " + "\n" + "Name: " + userName + "\n" + "Email: " + email + "\n" + "password: " + pass
-                + "\n" + "Account Type: " + type + "\n";
+        return "Account informaion: " + "\n" + "Name: " + userName + "\n" + "Email: " + email + "\n" + "Account Type: " + type + "\n";
     }
 
     /**

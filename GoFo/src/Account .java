@@ -50,12 +50,13 @@ public class Account {
         balance = 100;
     }
 
+ 
     /**
      *  Method used to sign up to the  system 
-     * @param email
-     * @param userName
-     * @param pass
-     * @param type
+     * @param  email of user
+     * @param  username of user 
+     * @param  password of user 
+     * @param  type of account 
      */
     public Account signUp(String email, String userName, String pass, String type) {
     boolean flag = true;
@@ -94,10 +95,10 @@ public class Account {
     /**
      * 
      * Method used to sign in  to specific account  in the  system 
-     * @param mail
-     * @param password
-     * @param userType
-     * @return
+     * @param mail  which is mail of user entered to log in 
+     * @param password which is pass of user entered to log in 
+     * @param userType which is type of user'a account entered to log in 
+     * @return true if information entered is true and false otherwise 
      */
     public boolean signIn(String mail, String password, String userType) {
         Account accountSignIn = new Account();
@@ -115,11 +116,11 @@ public class Account {
         return false;
     }
 
-    /**
+      /**
      *
      * Method used to transfer money from the player account to playground owner account 
-     * @param amountOfMoney
-     * @param acc
+     * @param amountOfMoney amount of money to be sent to other users
+     * @param acc Account set to recieve the money
      */
     public void transferMoney(double amountOfMoney, Account acc) {
 
@@ -140,10 +141,10 @@ public class Account {
         }
     }
 
-    /**
+ /**
      *
      * Method used to check the sender balance if valid or not
-     * @param i
+     * @param i index of account
      * @return balance of sender
      */
     public double checkBalance(int i) {
@@ -151,11 +152,12 @@ public class Account {
       
     }
 
+  
     /**
      *
      * Method used to update receiver balance
      * @param balance
-     * @return
+     * @return balance of user after updating
      */
     public double updateBalance(double balance) {
 
@@ -163,10 +165,10 @@ public class Account {
 
     }
 
-    /**
+      /**
      *
      * Method used to return the new balance
-     * @return
+     * @return balance of user
      */
     public double getBalance() {
         return balance;
@@ -175,7 +177,7 @@ public class Account {
     /**
      *
      * Method used to convert account information to string
-     * @return
+     * @return information of the account 
      */
     public String toString() {
         return "Account informaion: " + "\n" + "Name: " + userName + "\n" + "Email: " + email + "\n" + "Account Type: " + type + "\n";
@@ -194,16 +196,16 @@ public class Account {
     /**
      *
      * Method used to return  user name
-     * @return
+     * @return the username 
      */
     public String getUserName() {
         return this.userName;
     }
-
+   
     /**
-     *  Method used to return  user id
+     *  Method used to return  user id from cerain account 
      * @param a
-     * @return
+     * @return either id of playgroundOwner or player depending on type of account
      */
     public int getId(Account a) {
         if (a.type.equalsIgnoreCase("owner") || a.type.equalsIgnoreCase("playground owner")) {
@@ -214,9 +216,9 @@ public class Account {
     }
 
     /**
-     *  Method used to return  specific account
+     * Method used to get specific account with 
      * @param id
-     * @return
+     * @return the account
      */
     public Account getAccountByID(int id) {
         for (int i = 0; i < accounts.size(); i++) {
@@ -227,11 +229,11 @@ public class Account {
         return new Account();
     }
 
-    /**
+      /**
      *
-     *  Method used to return  user type
+     * Method used to get user type of certain account
      * @param i
-     * @return
+     * @return type of account
      */
     public String getUserType(int i) {
         return accounts.get(i).type;

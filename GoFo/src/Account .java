@@ -1,7 +1,7 @@
 import java.util.ArrayList;
 
 /**
- * This Class represents a client account with balance and account number
+ * This Class represents an account of users whether player or playground owner
  *
  * @author Norhan Abdelkader
  * @author Mariam Amr

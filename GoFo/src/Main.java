@@ -1,6 +1,20 @@
 import java.util.Scanner;
+/**
+ *Simple Main function contains main method used to test the program
+ * 
+ * @author Norhan Abdelkader
+ * @author Mariam Amr Mohamed
+ * @author Nermeen Mohamed Sayed
+ * @since 12-06-2021
+ */
 
 public class Main {
+  	/**
+	 * Main method which displays a menu that the user can interact with.
+	 * 
+	 * /**
+	 * @param args the command line arguments
+	 */
   public static void main(String[] args) {
 
     Scanner in = new Scanner(System.in);

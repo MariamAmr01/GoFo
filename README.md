@@ -29,6 +29,7 @@ displayOwnerMenu: menu for owner.<br/>
 getID: return id of owner.<br/>
 getAccount: return Account of owner.<br/>
 toString: Print owner's information.<br/>
+viewBooks: Shows the owner's book playgrounds.<br/>
 //////////////////////////<br/>
 Playground.java:<br/>
 Handles actions taken upon playground:<br/>
@@ -39,9 +40,13 @@ bookPlayground: add playground to booked playground list by players.<br/>
 getId: return id of playground.<br/>
 getOwner: return owner of playground.<br/>
 getCost: return cost of playgroud.<br/>
+Ownerbooks: Prints books of the owner's playground.<br/>
+CancelBooking: Remove playground from the booked list and set it back to be available for booking.
 //////////////////////////<br/>
 Player.java:<br/>
 Handles Player's actions:<br/>
 bookPlayground: player book certain playground if there are slots available. <br/>
 setSuitableSlots: Player chooses desired slots.<br/>
 getSlots: return slots chosen by player.<br/>
+viewBooking: Shows playgrounds booked by player.<br/>
+CancelBooking: Remove playground from the player's booked list and set it back to be available for booking.

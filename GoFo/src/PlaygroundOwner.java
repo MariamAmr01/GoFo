@@ -1,16 +1,33 @@
 import java.util.ArrayList;
 import java.util.Scanner;
-
+/**
+ * This Class represents a client account with balance and account number
+ * 
+ * @author Norhan Abdelkader
+ * @author Mariam Amr
+ * @author Nermeen Mohamed
+ * @since 2021-06-10
+ * 
+ */
 public class PlaygroundOwner {
   private int hours;
   private double cost;
   private String address;
   private Account account;
   private Playground playground;
+  /**
+     * list to display playground slots
+     */
   public  ArrayList<String> slots = new ArrayList<String>();
+  /**
+    * Static integer used to assign playground owner ID
+   */
   public static int id = -1;
   private int id2 = 0;
-
+/**
+     * Default Constructor to initialize the values of the attributes of the 
+     * playground owner
+     */
   public PlaygroundOwner() {
     account = new Account();
     hours = 0;
@@ -23,7 +40,10 @@ public class PlaygroundOwner {
       account = account.getAccountByID(id);
     }
   }
-
+/**
+     *
+     *  Method used to create playground 
+     */
   public void createPlayground() {
     Scanner in = new Scanner(System.in);
 
@@ -46,15 +66,23 @@ public class PlaygroundOwner {
     }
     this.playground.setUpPlayground(slots, this.cost, this.address, this);
   }
-
+    /**
+     *
+     *  Method used to make playground owner able to see his booked playgrounds
+     */
   public void viewBooks() {
     playground.ownerBooks(getID());
   }
-
+ /**
+     *
+     * Method used to make playground owner able to see his created playgrounds
+     */
   public void viewCreatedPlayground() {
     this.playground.printArrayList();
   }
-
+ /**
+     * Method used to display playground owner menu to be able to choose the operation he wants
+     */
   public void displayOwnerMenu() {
 
     System.out.println("Choose what you want to do: ");
@@ -62,11 +90,17 @@ public class PlaygroundOwner {
     System.out.println("2- View booked playgrounds.");
     System.out.println("3- Exit.");
   }
-
+/**
+     * Method used to return playground owner id
+     * @return  playground owner id
+     */
   public int getID() {
     return id2;
   }
-
+ /**
+     *  Method used to return playground owner account
+     * @return playground owner account by his id
+     */
   public Account getAccount() {
     if (id == Account.idPlaygroundOwner) {
       account = account.getAccountByID(id);
@@ -74,7 +108,10 @@ public class PlaygroundOwner {
     }
     return new Account();
   }
-
+  /**
+     *  Method used to convert playground owner information into string
+     * @return owner id converted to string
+     */
   public String toString() {
     return "PlaygroundOwner informaion: " + "\n" + "Playground owner ID: " + (getID() + 1) + "\n";
   }

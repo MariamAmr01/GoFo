@@ -1,7 +1,7 @@
 import java.util.ArrayList;
 import java.util.Scanner;
 /**
- * This Class represents a client account with balance and account number
+ * This Class represents a playground owner and his operations
  * 
  * @author Norhan Abdelkader
  * @author Mariam Amr

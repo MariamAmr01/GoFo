@@ -2,7 +2,7 @@
 A system for booking playgrounds. 
 
 ## Features 
-### Users are divided into 2 types of users:
+### Users are divided into 2 types:
 - Player
 - Playground owner
 ### Players:
